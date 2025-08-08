@@ -29,11 +29,9 @@ public class Review {
 
     @JsonIgnore
     @ManyToOne
-    @JoinColumn( nullable = false)
     private Product product;
 
     @ManyToOne
-    @JoinColumn( nullable = false)
     private User user;
 
     @Column(nullable = false)

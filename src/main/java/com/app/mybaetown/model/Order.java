@@ -15,6 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 @EqualsAndHashCode
 @Entity
+@Table(name = "orders")
 public class Order {
 
     @Id
@@ -23,7 +24,8 @@ public class Order {
 
     private String orderId;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY,optional = false)
+    @JoinColumn(name = "user_id",nullable = false)
     private User user;
 
     private Long sellerId;
@@ -46,6 +48,10 @@ public class Order {
     private OrderStatus orderStatus;
 
     private int totalItem;
+
+    @ManyToOne
+    @JoinColumn(name = "payment_order_id")
+    private PaymentOrder paymentOrder;
 
     private PaymentStatus paymentStatus=PaymentStatus.PENDING;
 

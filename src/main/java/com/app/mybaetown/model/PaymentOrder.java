@@ -31,6 +31,7 @@ public class PaymentOrder {
     @ManyToOne
     private User user;
 
-    private Set<Order> orders=new HashSet<>();
+    @OneToMany(cascade = CascadeType.ALL)
+    private Set<Order> orders = new HashSet<>();
 
 }

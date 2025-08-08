@@ -23,7 +23,7 @@ public class Seller {
     private String password;
 
     @Embedded
-    private BuisenessDetails buisenessDetails;
+    private BusinessDetails buisenessDetails;
 
     @Embedded
     private BankDetails bankDetails;

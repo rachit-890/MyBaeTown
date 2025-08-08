@@ -1,9 +1,6 @@
 package com.app.mybaetown.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Getter
@@ -21,4 +18,8 @@ public class CartItem {
     private int quantity;
     private Double unitPrice;
     private Double totalPrice;
+
+    @ManyToOne(fetch = FetchType.LAZY,optional = false)
+    @JoinColumn(name = "cart_id",nullable = false)
+    private Cart cart;
 }
